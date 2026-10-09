@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <!-- Sky -->
+  <rect width="400" height="200" fill="#87CEEB"/>
+  <!-- Mountains -->
+  <polygon points="0,200 100,100 200,200" fill="#8B6F47"/>
+  <polygon points="150,200 280,80 400,200" fill="#A0826D"/>
+  <!-- Ground -->
+  <polygon points="0,200 400,200 400,300 0,300" fill="#90EE90"/>
+  
+  <!-- Group of students -->
+  <!-- Student 1 -->
+  <circle cx="80" cy="170" r="10" fill="#FFD700"/>
+  <rect x="76" y="182" width="8" height="12" fill="#FF6B6B"/>
+  <line x1="76" y1="194" x2="74" y2="205" stroke="#333" stroke-width="1"/>
+  <line x1="84" y1="194" x2="86" y2="205" stroke="#333" stroke-width="1"/>
+  
+  <!-- Student 2 -->
+  <circle cx="140" cy="165" r="10" fill="#FFD700"/>
+  <rect x="136" y="177" width="8" height="12" fill="#0066CC"/>
+  <line x1="136" y1="189" x2="134" y2="200" stroke="#333" stroke-width="1"/>
+  <line x1="144" y1="189" x2="146" y2="200" stroke="#333" stroke-width="1"/>
+  
+  <!-- Student 3 -->
+  <circle cx="200" cy="160" r="10" fill="#FFD700"/>
+  <rect x="196" y="172" width="8" height="12" fill="#FF6B6B"/>
+  <line x1="196" y1="184" x2="194" y2="195" stroke="#333" stroke-width="1"/>
+  <line x1="204" y1="184" x2="206" y2="195" stroke="#333" stroke-width="1"/>
+  
+  <!-- Student 4 -->
+  <circle cx="260" cy="168" r="10" fill="#FFD700"/>
+  <rect x="256" y="180" width="8" height="12" fill="#0066CC"/>
+  <line x1="256" y1="192" x2="254" y2="203" stroke="#333" stroke-width="1"/>
+  <line x1="264" y1="192" x2="266" y2="203" stroke="#333" stroke-width="1"/>
+  
+  <!-- Student 5 -->
+  <circle cx="320" cy="175" r="10" fill="#FFD700"/>
+  <rect x="316" y="187" width="8" height="12" fill="#FF6B6B"/>
+  <line x1="316" y1="199" x2="314" y2="210" stroke="#333" stroke-width="1"/>
+  <line x1="324" y1="199" x2="326" y2="210" stroke="#333" stroke-width="1"/>
+  
+  <!-- Teacher -->
+  <circle cx="170" cy="140" r="11" fill="#FFD700"/>
+  <rect x="165" y="153" width="10" height="14" fill="#2d5016"/>
+  
+  <!-- Sun -->
+  <circle cx="350" cy="30" r="20" fill="#FFD700"/>
+</svg>

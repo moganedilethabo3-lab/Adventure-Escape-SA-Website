@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="fieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#90EE90;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#fieldGrad)"/>
+  <!-- Grass -->
+  <polygon points="0,180 400,180 400,300 0,300" fill="#3d8b40"/>
+  <!-- Horse 1 -->
+  <ellipse cx="100" cy="210" rx="35" ry="25" fill="#8B4513"/>
+  <circle cx="135" cy="200" r="20" fill="#8B4513"/>
+  <line x1="110" y1="235" x2="110" y2="270" stroke="#654321" stroke-width="3"/>
+  <line x1="120" y1="235" x2="120" y2="270" stroke="#654321" stroke-width="3"/>
+  <!-- Rider on horse 1 -->
+  <circle cx="110" cy="185" r="8" fill="#FFD700"/>
+  <rect x="106" y="195" width="8" height="15" fill="#FF6B6B"/>
+  <!-- Horse 2 -->
+  <ellipse cx="280" cy="220" rx="35" ry="25" fill="#654321"/>
+  <circle cx="315" cy="210" r="20" fill="#654321"/>
+  <line x1="290" y1="245" x2="290" y2="280" stroke="#3d2817" stroke-width="3"/>
+  <line x1="300" y1="245" x2="300" y2="280" stroke="#3d2817" stroke-width="3"/>
+  <!-- Rider on horse 2 -->
+  <circle cx="290" cy="195" r="8" fill="#FFD700"/>
+  <rect x="286" y="205" width="8" height="15" fill="#000"/>
+  <!-- Sun -->
+  <circle cx="350" cy="30" r="25" fill="#FFD700"/>
+  <!-- Clouds -->
+  <ellipse cx="50" cy="50" rx="30" ry="15" fill="#FFF" opacity="0.8"/>
+  <ellipse cx="80" cy="60" rx="20" ry="10" fill="#FFF" opacity="0.8"/>
+</svg>

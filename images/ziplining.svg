@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFB347;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C42;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#sunsetGrad)"/>
+  <!-- Forest -->
+  <polygon points="0,200 100,100 200,200" fill="#2d5016"/>
+  <polygon points="150,200 250,80 350,200" fill="#3d6b1f"/>
+  <polygon points="300,200 380,120 400,200" fill="#2d5016"/>
+  <!-- Zip line platform -->
+  <rect x="100" y="95" width="15" height="30" fill="#8B4513"/>
+  <rect x="95" y="95" width="25" height="8" fill="#654321"/>
+  <!-- Zip line cables -->
+  <line x1="107" y1="95" x2="330" y2="180" stroke="#666" stroke-width="2"/>
+  <line x1="107" y1="95" x2="330" y2="200" stroke="#666" stroke-width="2"/>
+  <!-- Person on zip line -->
+  <circle cx="240" cy="155" r="5" fill="#333"/>
+  <rect x="237" y="160" width="6" height="10" fill="#FF6B6B"/>
+  <line x1="237" y1="170" x2="235" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="243" y1="170" x2="245" y2="180" stroke="#333" stroke-width="2"/>
+  <!-- Landing platform -->
+  <rect x="320" y="195" width="20" height="25" fill="#8B4513"/>
+  <rect x="315" y="195" width="30" height="8" fill="#654321"/>
+  <!-- Birds -->
+  <path d="M 50 50 Q 60 40 70 50" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M 340 60 Q 350 50 360 60" stroke="#333" stroke-width="1" fill="none"/>
+</svg>

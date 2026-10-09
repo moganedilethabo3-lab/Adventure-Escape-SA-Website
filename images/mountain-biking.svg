@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#90EE90;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#mountainGrad)"/>
+  <!-- Mountains -->
+  <polygon points="0,200 150,80 300,200" fill="#8B6F47"/>
+  <polygon points="150,200 280,60 400,200" fill="#A0826D"/>
+  <!-- Mountain bike trail -->
+  <path d="M 100 150 Q 150 140 180 160 T 240 150" stroke="#654321" stroke-width="3" fill="none"/>
+  <!-- Biker 1 -->
+  <ellipse cx="160" cy="170" rx="20" ry="12" fill="#333"/>
+  <circle cx="160" cy="145" r="8" fill="#FFD700"/>
+  <rect x="157" y="155" width="6" height="12" fill="#FF6B6B"/>
+  <line x1="157" y1="167" x2="155" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="163" y1="167" x2="165" y2="180" stroke="#333" stroke-width="2"/>
+  <!-- Handlebar -->
+  <line x1="140" y1="160" x2="180" y2="160" stroke="#333" stroke-width="2"/>
+  <!-- Biker 2 -->
+  <ellipse cx="280" cy="155" rx="20" ry="12" fill="#333"/>
+  <circle cx="280" cy="130" r="8" fill="#FFD700"/>
+  <rect x="277" y="140" width="6" height="12" fill="#000"/>
+  <line x1="277" y1="152" x2="275" y2="165" stroke="#333" stroke-width="2"/>
+  <line x1="283" y1="152" x2="285" y2="165" stroke="#333" stroke-width="2"/>
+  <!-- Handlebar -->
+  <line x1="260" y1="145" x2="300" y2="145" stroke="#333" stroke-width="2"/>
+  <!-- Trees -->
+  <line x1="50" y1="190" x2="50" y2="210" stroke="#654321" stroke-width="3"/>
+  <polygon points="50,180 40,195 60,195" fill="#2d5016"/>
+  <line x1="350" y1="185" x2="350" y2="205" stroke="#654321" stroke-width="3"/>
+  <polygon points="350,175 340,190 360,190" fill="#2d5016"/>
+</svg>

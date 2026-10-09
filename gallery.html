@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Adventure Escape SA</title>
+    
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img width="180" height="120"  src="images2/adventure%20escape.jpg" alt="Adventure Escape SA Logo" class="logo-img">
+                <span class="brand-name">Adventure Escape SA</span>
+            </div>
+            
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="accommodation.html">Accommodation</a>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="overview.html">Overview</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Activities</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="activities.html">Individual Activities</a></li>
+                        <li><a href="group-activities.html">Group Activities</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="quotation.html">Quotation</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Bookings</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="individual-booking.html">Individual Booking</a></li>
+                        <li><a href="group-booking.html">Group Booking</a></li>
+                    </ul>
+                </li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>View our adventure experiences in action</p>
+        </div>
+    </section>
+
+    
+    <section class="section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('images2/hiking.jpg')">
+                    <img width="180" height="120"  src="images2/hiking.jpg" alt="Hiking Adventure">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/kayaking.jpg')">
+                    <img width="180" height="120"  src="images2/kayaking.jpg" alt="Kayaking Adventure">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/quad%20biking.jpg')">
+                    <img width="180" height="120"  src="images2/quad%20biking.jpg" alt="Quad Biking">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/ziplining.jpg')">
+                    <img width="180" height="120"  src="images2/ziplining.jpg" alt="Zip Lining">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/horse%20riding.jpg')">
+                    <img width="180" height="120"  src="images2/horse%20riding.jpg" alt="Horse Riding">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/adventure%20escape.jpg')">
+                    <img width="180" height="120"  src="images2/adventure%20escape.jpg" alt="Mountain Biking">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/adventure%20escape.jpg')">
+                    <img width="180" height="120"  src="images2/adventure%20escape.jpg" alt="Accommodation">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/kayaking.jpg')">
+                    <img width="180" height="120"  src="images2/kayaking.jpg" alt="Camping">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/adventure%20escape.jpg')">
+                    <img width="180" height="120"  src="images2/adventure%20escape.jpg" alt="Team Building">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/hiking.jpg')">
+                    <img width="180" height="120"  src="images2/hiking.jpg" alt="School Trips">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/quad%20biking.jpg')">
+                    <img width="180" height="120"  src="images2/quad%20biking.jpg" alt="Adventure Gallery">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('images2/ziplining.jpg')">
+                    <img width="180" height="120"  src="images2/ziplining.jpg" alt="Mountain Adventure">
+                    <div class="gallery-overlay">
+                        <span>Click to expand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img width="180" height="120"  id="lightboxImg" src="" alt="Enlarged image">
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adventure Escape SA</h4>
+                    <p>Your gateway to unforgettable outdoor adventures in South Africa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p><strong>Email:</strong> info@adventureescapesa.co.za</p>
+                    <p><strong>Phone:</strong> 012 345 6789</p>
+                    <p><strong>Location:</strong> South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adventure Escape SA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+
+
+

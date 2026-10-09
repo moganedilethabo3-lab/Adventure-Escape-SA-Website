@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote - Adventure Escape SA</title>
+    
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img width="180" height="120"  src="images2/adventure%20escape.jpg" alt="Adventure Escape SA Logo" class="logo-img">
+                <span class="brand-name">Adventure Escape SA</span>
+            </div>
+            
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="accommodation.html">Accommodation</a>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="overview.html">Overview</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Activities</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="activities.html">Individual Activities</a></li>
+                        <li><a href="group-activities.html">Group Activities</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="quotation.html">Quotation</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Bookings</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="individual-booking.html">Individual Booking</a></li>
+                        <li><a href="group-booking.html">Group Booking</a></li>
+                    </ul>
+                </li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Get a Quotation</h1>
+            <p>Calculate the cost of your adventure</p>
+        </div>
+    </section>
+
+    
+    <section class="section">
+        <div class="container">
+            <div class="form-container">
+                <form id="quotationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity">Activity</label>
+                            <select id="activity" name="activity" onchange="updatePrice()" required>
+                                <option value="">Select an activity</option>
+                                <option value="hiking" data-price="250">Hiking - R250</option>
+                                <option value="quad-biking" data-price="400">Quad Biking - R400</option>
+                                <option value="ziplining" data-price="350">Zip Lining - R350</option>
+                                <option value="kayaking" data-price="280">Kayaking - R280</option>
+                                <option value="horse-riding" data-price="300">Horse Riding - R300</option>
+                                <option value="mountain-biking" data-price="320">Mountain Biking - R320</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="people">Number of People</label>
+                            <input type="number" id="people" name="people" min="1" value="1" onchange="updatePrice()" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary" onclick="calculateQuote()">Calculate Quote</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+
+                    
+                    <div id="quoteResult" class="quote-result" style="display: none;">
+                        <h3>Estimated Quote</h3>
+                        <div class="quote-details">
+                            <p>Activity: <span id="resultActivity"></span></p>
+                            <p>Number of People: <span id="resultPeople"></span></p>
+                            <p>Price per Person: <span id="resultPrice"></span></p>
+                        </div>
+                        <div class="quote-total">
+                            <h2>Estimated Total: R<span id="resultTotal">0</span></h2>
+                        </div>
+                        <p class="quote-note">This is an estimated quote. Final pricing may vary based on specific requirements and dates.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adventure Escape SA</h4>
+                    <p>Your gateway to unforgettable outdoor adventures in South Africa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p><strong>Email:</strong> info@adventureescapesa.co.za</p>
+                    <p><strong>Phone:</strong> 012 345 6789</p>
+                    <p><strong>Location:</strong> South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adventure Escape SA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+
+
+

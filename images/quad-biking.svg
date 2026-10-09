@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="dirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B7355;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="400" height="120" fill="#87CEEB"/>
+  <!-- Ground -->
+  <rect y="120" width="400" height="180" fill="url(#dirtGrad)"/>
+  <!-- Sun -->
+  <circle cx="60" cy="40" r="25" fill="#FFD700"/>
+  <!-- Quad bike 1 -->
+  <rect x="80" y="160" width="60" height="35" fill="#FF6B6B" rx="3"/>
+  <circle cx="95" cy="200" r="12" fill="#333"/>
+  <circle cx="135" cy="200" r="12" fill="#333"/>
+  <polygon points="110,155 95,140 125,140" fill="#FF8787"/>
+  <!-- Rider on first bike -->
+  <circle cx="120" cy="130" r="6" fill="#333"/>
+  <rect x="117" y="138" width="6" height="12" fill="#000"/>
+  <!-- Quad bike 2 -->
+  <rect x="220" y="180" width="60" height="35" fill="#FFA500" rx="3"/>
+  <circle cx="235" cy="220" r="12" fill="#333"/>
+  <circle cx="275" cy="220" r="12" fill="#333"/>
+  <polygon points="250,175 235,160 265,160" fill="#FFB84D"/>
+  <!-- Rider on second bike -->
+  <circle cx="260" cy="150" r="6" fill="#333"/>
+  <rect x="257" y="158" width="6" height="12" fill="#000"/>
+  <!-- Dust cloud -->
+  <circle cx="300" cy="175" r="8" fill="#D2B48C" opacity="0.6"/>
+  <circle cx="310" cy="170" r="6" fill="#D2B48C" opacity="0.5"/>
+  <!-- Trees/bushes -->
+  <polygon points="20,140 40,110 60,140" fill="#2d5016"/>
+  <polygon points="340,140 360,110 380,140" fill="#2d5016"/>
+</svg>
