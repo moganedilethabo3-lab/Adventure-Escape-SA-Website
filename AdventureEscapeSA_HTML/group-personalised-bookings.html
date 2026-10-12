@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Adventure Escape SA | Group Personalised Bookings</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function setCurrentDateFields() {
+      var today = new Date();
+      var yyyy = today.getFullYear();
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
+      var dd = String(today.getDate()).padStart(2, '0');
+      var isoDate = yyyy + '-' + mm + '-' + dd;
+
+      var dateInput = document.getElementById('groupdate');
+      if (dateInput) {
+        dateInput.min = isoDate;
+        if (!dateInput.value) {
+          dateInput.value = isoDate;
+        }
+      }
+    }
+    window.onload = setCurrentDateFields;
+  </script>
+</head>
+<body bgcolor="#f5f7f2" text="#1f2a2e" link="#1c6a4d" vlink="#1c6a4d" alink="#d96a2b">
+  <table width="100%" bgcolor="#194f3d" cellpadding="12" cellspacing="0" border="0">
+    <tr>
+      <td width="120" align="left">
+        <img src="../pictures/company logo.png" alt="Adventure Escape SA company logo" width="110" height="70">
+      </td>
+      <td align="center">
+        <font face="Arial, Helvetica, sans-serif" size="5" color="#ffffff"><b>Adventure Escape SA</b></font>
+      </td>
+      <td width="120">&nbsp;</td>
+    </tr>
+  </table>
+
+  <table width="100%" bgcolor="#d9e7dc" cellpadding="8" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <font face="Arial, Helvetica, sans-serif" size="2">
+          <a href="index.html">Home</a> |
+          <a href="about-us.html">About</a> |
+          <a href="overview.html">Overview</a> |
+          <a href="gallery.html">Gallery</a> |
+          <a href="individual-activities.html">Activities</a> |
+          <a href="group-activities.html">Groups</a> |
+          <a href="quotation.html">Quote</a> |
+          <a href="contact.html">Contact</a>
+        </font>
+      </td>
+    </tr>
+  </table>
+
+  <table width="95%" align="center" cellpadding="20" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <font face="Arial, Helvetica, sans-serif">
+          <h1><font color="#194f3d">Group Personalised Bookings</font></h1>
+          <p>For corporate teams, families, school groups, or social groups, this page helps you request a custom adventure plan that matches the size, preferences, and schedule of your group. Adventure Escape SA offers packages at R1,500 each, and group pricing can be tailored to the scale of the booking.</p>
+          <p>Flexible discounts and package adjustments may be available for larger groups.</p>
+        </font>
+      </td>
+    </tr>
+  </table>
+
+  <hr color="#9db7a7">
+
+  <table width="95%" align="center" cellpadding="20" cellspacing="10" border="0">
+    <tr>
+      <td width="50%" bgcolor="#ffffff" valign="top">
+        <font face="Arial, Helvetica, sans-serif">
+          <h2><font color="#194f3d">Group booking form</font></h2>
+          <form action="#" method="post">
+            <p>
+              <label for="grouporg">Organisation or group name:</label><br>
+              <input type="text" id="grouporg" name="grouporg" size="40">
+            </p>
+            <p>
+              <label for="groupcontact">Contact name:</label><br>
+              <input type="text" id="groupcontact" name="groupcontact" size="40">
+            </p>
+            <p>
+              <label for="groupemail">Email address:</label><br>
+              <input type="text" id="groupemail" name="groupemail" size="40">
+            </p>
+            <p>
+              <label for="groupphone">Phone number:</label><br>
+              <input type="text" id="groupphone" name="groupphone" size="40">
+            </p>
+            <p>
+              <label for="groupmembers">Number of participants:</label><br>
+              <input type="text" id="groupmembers" name="groupmembers" size="20">
+            </p>
+            <p>
+              <label for="groupactivity">Preferred package or activity:</label><br>
+              <select id="groupactivity" name="groupactivity" size="1">
+                <option value="ultimate-day">Ultimate Adventure Day</option>
+                <option value="family-explorer">Family Explorer Package</option>
+                <option value="mountain">Mountain Adventure Package</option>
+                <option value="corporate-team">Corporate Team Challenge</option>
+                <option value="ziplining">Ziplining Adventure</option>
+                <option value="kayaking">Kayaking Experience</option>
+                <option value="climbing">Rock Climbing Session</option>
+              </select>
+            </p>
+            <p>
+              <label for="groupdate">Preferred date:</label><br>
+              <input type="date" id="groupdate" name="groupdate" size="30">
+            </p>
+            <p>
+              <label for="grouplocation">Preferred location:</label><br>
+              <input type="text" id="grouplocation" name="grouplocation" size="40">
+            </p>
+            <p>
+              <label for="groupgoals">Group goals and requirements:</label><br>
+              <textarea id="groupgoals" name="groupgoals" rows="7" cols="45"></textarea>
+            </p>
+            <p>
+              <input type="submit" value="Request Group Booking">
+            </p>
+          </form>
+        </font>
+      </td>
+      <td width="50%" valign="top">
+        <font face="Arial, Helvetica, sans-serif">
+        </font>
+      </td>
+    </tr>
+  </table>
+
+  <table width="100%" bgcolor="#194f3d" cellpadding="15" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <font face="Arial, Helvetica, sans-serif" size="2" color="#ffffff">
+          Adventure Escape SA &nbsp; | &nbsp; Personalised bookings for teams, families, and groups
+        </font>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
