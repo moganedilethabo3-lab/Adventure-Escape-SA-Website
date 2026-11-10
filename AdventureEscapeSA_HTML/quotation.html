@@ -4,6 +4,78 @@
   <title>Adventure Escape SA | Quotation</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <style>
+    .quote-summary-wrap {
+      width: 95%;
+      max-width: 1200px;
+      margin: 28px auto 0;
+    }
+
+    #budgetSlip {
+      display: none;
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #dfeae4;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(18, 35, 30, 0.08);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #budgetSlip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quote-summary {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .quote-summary td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .quote-summary tr:last-child td {
+      border-bottom: none;
+    }
+
+    .quote-summary .header-row td {
+      background: var(--forest);
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .validation-message {
+      display: none;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fff1f1;
+      border: 1px solid #e7b5b5;
+      color: #8a2b2b;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .validation-message.show {
+      display: block;
+    }
+
+    .hidden-row {
+      display: none;
+    }
+  </style>
   <script>
     function setCurrentDateFields() {
       var today = new Date();
@@ -24,20 +96,160 @@
       if (budgetSlip) {
         budgetSlip.style.display = 'none';
       }
+
+      toggleEmailField();
+      bindFieldClearOnInput();
     }
     window.onload = setCurrentDateFields;
 
+    function bindFieldClearOnInput() {
+      var fields = ['fullname', 'email', 'phone', 'guests', 'date'];
+      fields.forEach(function(fieldId) {
+        var field = document.getElementById(fieldId);
+        if (!field) return;
+
+        field.addEventListener('input', function() {
+          if (field.classList.contains('error')) {
+            clearFieldError(fieldId);
+          }
+        });
+      });
+    }
+
+    function formatCurrency(value) {
+      return 'R ' + Number(value).toLocaleString('en-ZA', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+    }
+
+    function setFieldError(fieldId, message) {
+      var field = document.getElementById(fieldId);
+      if (!field) return;
+
+      field.classList.add('error');
+      field.setAttribute('data-error', message || '');
+    }
+
+    function clearFieldError(fieldId) {
+      var field = document.getElementById(fieldId);
+      if (!field) return;
+
+      field.classList.remove('error');
+      field.removeAttribute('data-error');
+    }
+
+    function showValidationMessage(message) {
+      var box = document.getElementById('validationMessage');
+      if (!box) return;
+      box.innerHTML = message;
+      box.classList.add('show');
+    }
+
+    function hideValidationMessage() {
+      var box = document.getElementById('validationMessage');
+      if (!box) return;
+      box.innerHTML = '';
+      box.classList.remove('show');
+    }
+
+    function validateEmail(email) {
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email.trim());
+    }
+
+    function validatePhone(phone) {
+      var cleaned = phone.replace(/\s+/g, '').replace(/[-()]/g, '');
+      return /^((\+27|27|0)\d{9}|\+\d{11,15})$/.test(cleaned) && cleaned.length >= 10;
+    }
+
+    function validateForm() {
+      hideValidationMessage();
+
+      ['fullname', 'email', 'phone', 'guests', 'date'].forEach(function(fieldId) {
+        clearFieldError(fieldId);
+      });
+
+      var isValid = true;
+      var fullname = document.getElementById('fullname').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var guests = document.getElementById('guests').value.trim();
+      var emailField = document.getElementById('email');
+      var email = emailField ? emailField.value.trim() : '';
+      var sendEmail = document.getElementById('sendQuoteByEmail').checked;
+      var dateValue = document.getElementById('date').value;
+
+      if (fullname.length < 2) {
+        setFieldError('fullname', 'Please enter your full name.');
+        isValid = false;
+      }
+
+      if (sendEmail && !validateEmail(email)) {
+        setFieldError('email', 'Please enter a valid email address.');
+        isValid = false;
+      }
+
+      if (!phone || !validatePhone(phone)) {
+        setFieldError('phone', 'Please enter a valid phone number.');
+        isValid = false;
+      }
+
+      if (!guests || isNaN(guests) || Number(guests) < 1 || Number(guests) > 100) {
+        setFieldError('guests', 'Please enter a valid number of bookings between 1 and 100.');
+        isValid = false;
+      }
+
+      if (dateValue) {
+        var selectedDate = new Date(dateValue + 'T00:00:00');
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+          setFieldError('date', 'Please choose a future date or today.');
+          isValid = false;
+        }
+      }
+
+      if (!isValid) {
+        showValidationMessage('Please fix the highlighted fields before submitting the quotation.');
+      }
+
+      return isValid;
+    }
+
+    function toggleEmailField() {
+      var sendEmail = document.getElementById('sendQuoteByEmail');
+      var emailFieldRow = document.getElementById('emailFieldRow');
+      var emailInput = document.getElementById('email');
+
+      if (emailFieldRow) {
+        emailFieldRow.classList.toggle('hidden-row', !(sendEmail && sendEmail.checked));
+      }
+
+      if (emailInput) {
+        emailInput.required = sendEmail && sendEmail.checked;
+        if (!sendEmail.checked) {
+          clearFieldError('email');
+        }
+      }
+    }
+
     function generateQuote(event) {
       event.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
 
       var fullname = document.getElementById('fullname').value || 'Not provided';
       var email = document.getElementById('email').value || 'Not provided';
       var phone = document.getElementById('phone').value || 'Not provided';
       var type = document.getElementById('type').value;
       var packageName = document.getElementById('package').options[document.getElementById('package').selectedIndex].text;
-      var people = parseInt(document.getElementById('guests').value || 0, 10);
+      var bookings = parseInt(document.getElementById('guests').value || 0, 10);
       var date = document.getElementById('date').value || 'To be confirmed';
       var location = document.getElementById('location').value || 'To be confirmed';
+      var sendEmail = document.getElementById('sendQuoteByEmail').checked;
 
       var packagePrices = {
         'ziplining': 750,
@@ -51,241 +263,234 @@
 
       var selectedPackage = document.getElementById('package').value;
       var unitPrice = packagePrices[selectedPackage] || 0;
-      var subtotal = unitPrice * people;
+      var subtotal = unitPrice * bookings;
 
       var discountRate = 0;
-      if (people >= 30) {
-        discountRate = 0.20;
-      } else if (people >= 20) {
-        discountRate = 0.15;
-      } else if (people >= 10) {
-        discountRate = 0.10;
-      } else if (people >= 5) {
+      if (bookings === 2) {
         discountRate = 0.05;
+      } else if (bookings === 3) {
+        discountRate = 0.10;
+      } else if (bookings > 3) {
+        discountRate = 0.15;
       }
 
       var discount = subtotal * discountRate;
-      var vatRate = 0.15;
       var discountedSubtotal = subtotal - discount;
-      var vat = discountedSubtotal * vatRate;
-      var total = discountedSubtotal + vat;
+      var total = discountedSubtotal;
 
       document.getElementById('budgetName').innerHTML = fullname;
-      document.getElementById('budgetEmail').innerHTML = email;
+      document.getElementById('budgetEmail').innerHTML = sendEmail ? email : 'Not shown';
       document.getElementById('budgetPhone').innerHTML = phone;
       document.getElementById('budgetType').innerHTML = type;
       document.getElementById('budgetPackage').innerHTML = packageName;
-      document.getElementById('budgetPeople').innerHTML = people;
+      document.getElementById('budgetPeople').innerHTML = bookings;
       document.getElementById('budgetDate').innerHTML = date;
       document.getElementById('budgetLocation').innerHTML = location;
-      document.getElementById('budgetUnit').innerHTML = 'R ' + unitPrice.toLocaleString();
-      document.getElementById('budgetSubtotal').innerHTML = 'R ' + subtotal.toLocaleString();
-      document.getElementById('budgetDiscount').innerHTML = 'R ' + discount.toLocaleString();
-      document.getElementById('budgetDiscountedSubtotal').innerHTML = 'R ' + discountedSubtotal.toLocaleString();
-      document.getElementById('budgetVat').innerHTML = 'R ' + vat.toLocaleString();
-      document.getElementById('budgetFinal').innerHTML = 'R ' + total.toLocaleString();
-      document.getElementById('budgetTotal').innerHTML = 'R ' + total.toLocaleString();
+      document.getElementById('budgetUnit').innerHTML = formatCurrency(unitPrice);
+      document.getElementById('budgetSubtotal').innerHTML = formatCurrency(subtotal);
+      document.getElementById('budgetDiscount').innerHTML = formatCurrency(discount);
+      document.getElementById('budgetDiscountedSubtotal').innerHTML = formatCurrency(discountedSubtotal);
+      document.getElementById('budgetFinal').innerHTML = formatCurrency(total);
+      document.getElementById('budgetTotal').innerHTML = formatCurrency(total);
 
-      document.getElementById('budgetSlip').style.display = 'block';
+      document.getElementById('budgetEmailRow').classList.toggle('hidden-row', !sendEmail);
+      document.getElementById('budgetPhoneRow').classList.toggle('hidden-row', !sendEmail);
+
+      var slip = document.getElementById('budgetSlip');
+      slip.style.display = 'table';
+      setTimeout(function() {
+        slip.classList.add('visible');
+      }, 40);
     }
   </script>
 </head>
-<body bgcolor="#f5f7f2" text="#1f2a2e" link="#1c6a4d" vlink="#1c6a4d" alink="#d96a2b">
-  <table width="100%" bgcolor="#194f3d" cellpadding="12" cellspacing="0" border="0">
-    <tr>
-      <td width="120" align="left">
-        <img src="../pictures/company logo.png" alt="Adventure Escape SA company logo" width="110" height="70">
-      </td>
-      <td align="center">
-        <font face="Arial, Helvetica, sans-serif" size="5" color="#ffffff"><b>Adventure Escape SA</b></font>
-      </td>
-      <td width="120">&nbsp;</td>
-    </tr>
-  </table>
+<body>
+  <header>
+    <div class="brand-bar">
+      <div class="brand-inner">
+        <div>
+          <img src="../pictures/company logo.png" alt="Adventure Escape SA company logo" width="110" height="70">
+        </div>
+        <div class="brand-name">Adventure Escape SA</div>
+        <div class="brand-tag">App</div>
+      </div>
+    </div>
 
-  <table width="100%" bgcolor="#d9e7dc" cellpadding="8" cellspacing="0" border="0">
-    <tr>
-      <td align="center">
-        <font face="Arial, Helvetica, sans-serif" size="2">
-          <a href="index.html">Home</a> |
-          <a href="about-us.html">About</a> |
-          <a href="overview.html">Overview</a> |
-          <a href="gallery.html">Gallery</a> |
-          <a href="individual-activities.html">Activities</a> |
-          <a href="group-activities.html">Groups</a> |
-          <a href="quotation.html">Quote</a> |
-          <a href="contact.html">Contact</a>
-        </font>
-      </td>
-    </tr>
-  </table>
+    <nav class="nav-bar">
+      <div class="nav-inner">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="overview.html">Overview</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="individual-activities.html">Activities</a>
+        <a href="group-activities.html">Groups</a>
+        <a href="quotation.html">Quote</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-  <table width="95%" align="center" cellpadding="20" cellspacing="0" border="0">
-    <tr>
-      <td>
-        <font face="Arial, Helvetica, sans-serif">
-          <h1><font color="#194f3d">Quotation Request</font></h1>
-          <p>Use this form to request a quotation for an individual or group adventure. Please describe your preferred experience, the number of people, and any timing or location preferences.</p>
-          <p><b>Standard rates:</b> Individual activities R750 each; group packages R1,500 each.</p>
-        </font>
-      </td>
-    </tr>
-  </table>
+  <main class="page-shell">
+    <section class="page-hero">
+      <span class="page-note">Quotation</span>
+      <h1>Quotation request</h1>
+      <p>Use this form to request a quotation for an individual or group adventure. Please describe your preferred experience, the number of people, and any timing or location preferences.</p>
+      <p><strong>Standard rates:</strong> <span class="list-price">Individual activities R750 each; group packages R1,500 each.</span></p>
+    </section>
 
-  <hr color="#9db7a7">
+    <section class="two-col-grid">
+      <div class="content-card">
+        <h2>Request a quote</h2>
+        <form id="quoteForm" class="booking-form" onsubmit="generateQuote(event)">
+          <div id="validationMessage" class="validation-message" aria-live="polite"></div>
 
-  <table width="95%" align="center" cellpadding="20" cellspacing="10" border="0">
-    <tr>
-      <td width="50%" bgcolor="#ffffff" valign="top">
-        <font face="Arial, Helvetica, sans-serif">
-          <h2><font color="#194f3d">Request a quote</font></h2>
-          <form id="quoteForm" onsubmit="generateQuote(event)">
-            <p>
-              <label for="fullname">Full name:</label><br>
-              <input type="text" id="fullname" name="fullname" size="40" required>
-            </p>
-            <p>
-              <label for="email">Email address:</label><br>
-              <input type="email" id="email" name="email" size="40" required>
-            </p>
-            <p>
-              <label for="phone">Phone number:</label><br>
-              <input type="text" id="phone" name="phone" size="40" required>
-            </p>
-            <p>
-              <label for="type">Booking type:</label><br>
-              <select id="type" name="type" size="1">
-                <option value="individual">Individual</option>
-                <option value="group">Group</option>
-                <option value="family">Family</option>
-                <option value="corporate">Corporate</option>
-              </select>
-            </p>
-            <p>
-              <label for="package">Activity or package:</label><br>
-              <select id="package" name="package" size="1">
-                <option value="ziplining">Ziplining Adventure</option>
-                <option value="kayaking">Kayaking Experience</option>
-                <option value="climbing">Rock Climbing Session</option>
-                <option value="ultimate">Ultimate Adventure Day</option>
-                <option value="family-explorer">Family Explorer Package</option>
-                <option value="mountain">Mountain Adventure Package</option>
-                <option value="corporate-challenge">Corporate Team Challenge</option>
-              </select>
-            </p>
-            <p>
-              <label for="guests">Number of people:</label><br>
-              <input type="number" id="guests" name="guests" size="20" min="1" value="1" required>
-            </p>
-            <p>
-              <label for="date">Preferred date:</label><br>
-              <input type="date" id="date" name="date" size="30">
-            </p>
-            <p>
-              <label for="location">Preferred location:</label><br>
-              <input type="text" id="location" name="location" size="40" placeholder="e.g. Cape Town">
-            </p>
-            <p>
-              <label for="details">Additional details:</label><br>
-              <textarea id="details" name="details" rows="6" cols="45"></textarea>
-            </p>
-            <p>
-              <input type="submit" value="Submit Quotation Request">
-            </p>
-          </form>
-        </font>
-      </td>
-      <td width="50%" valign="top">
-        <font face="Arial, Helvetica, sans-serif">
-          <h2><font color="#194f3d">Useful information</font></h2>
-          <ul>
-            <li>Activity quotes are based on the standard rates listed for each item.</li>
-            <li>The company may confirm possible discounts based on the number of bookings.</li>
-            <li>Location and date availability may vary depending on the chosen experience.</li>
-            <li>For a tailored experience, you can also use the personalised booking pages.</li>
-          </ul>
-          <img src="../pictures/SA hike.jpg" alt="A scenic mountain forest trail used for outdoor adventure planning" width="100%" border="1">
-        </font>
-      </td>
-    </tr>
-  </table>
+          <div>
+            <label for="fullname">Full name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+          </div>
 
-  <table id="budgetSlip" width="95%" align="center" cellpadding="15" cellspacing="0" border="1" bordercolor="#c5d3c6" bgcolor="#ffffff">
-    <tr>
-      <td colspan="2" align="center" bgcolor="#194f3d">
-        <font face="Arial, Helvetica, sans-serif" size="4" color="#ffffff"><b>Budget Slip</b></font>
-      </td>
-    </tr>
-    <tr>
-      <td width="40%"><font face="Arial, Helvetica, sans-serif"><b>Client Name</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetName">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Email</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetEmail">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Phone</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetPhone">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Booking Type</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetType">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Selected Experience</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetPackage">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>People</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetPeople">0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Preferred Date</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetDate">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Preferred Location</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetLocation">-</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Unit Price</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetUnit">R 0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Subtotal</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetSubtotal">R 0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Discount</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetDiscount">R 0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Discounted Subtotal</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetDiscountedSubtotal">R 0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>VAT (15%)</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><span id="budgetVat">R 0</span></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Final Price</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><b><span id="budgetFinal">R 0</span></b></font></td>
-    </tr>
-    <tr>
-      <td><font face="Arial, Helvetica, sans-serif"><b>Total Estimate</b></font></td>
-      <td><font face="Arial, Helvetica, sans-serif"><b><span id="budgetTotal">R 0</span></b></font></td>
-    </tr>
-  </table>
+          <div id="emailFieldRow" class="hidden-row">
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email">
+          </div>
 
-  <table width="100%" bgcolor="#194f3d" cellpadding="15" cellspacing="0" border="0">
-    <tr>
-      <td align="center">
-        <font face="Arial, Helvetica, sans-serif" size="2" color="#ffffff">
-          Adventure Escape SA &nbsp; | &nbsp; Quotation requests for adventure activities and packages
-        </font>
-      </td>
-    </tr>
-  </table>
+          <div>
+            <label for="phone">Phone number:</label>
+            <input type="text" id="phone" name="phone" required>
+          </div>
+
+          <div>
+            <label for="sendQuoteByEmail">
+              <input type="checkbox" id="sendQuoteByEmail" name="sendQuoteByEmail" onchange="toggleEmailField()">
+              Send the final quotation to my email
+            </label>
+          </div>
+
+          <div>
+            <label for="type">Booking type:</label>
+            <select id="type" name="type">
+              <option value="Individual">Individual</option>
+              <option value="Group">Group</option>
+              <option value="Family">Family</option>
+              <option value="Corporate">Corporate</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="package">Activity or package:</label>
+            <select id="package" name="package">
+              <option value="ziplining">Ziplining Adventure</option>
+              <option value="kayaking">Kayaking Experience</option>
+              <option value="climbing">Rock Climbing Session</option>
+              <option value="ultimate">Ultimate Adventure Day</option>
+              <option value="family-explorer">Family Explorer Package</option>
+              <option value="mountain">Mountain Adventure Package</option>
+              <option value="corporate-challenge">Corporate Team Challenge</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="guests">Number of bookings:</label>
+            <input type="number" id="guests" name="guests" min="1" value="1" required>
+          </div>
+
+          <div>
+            <label for="date">Preferred date:</label>
+            <input type="date" id="date" name="date">
+          </div>
+
+          <div>
+            <label for="location">Preferred location:</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Cape Town">
+          </div>
+
+          <div>
+            <label for="details">Additional details:</label>
+            <textarea id="details" name="details"></textarea>
+          </div>
+
+          <button type="submit">Show Final Quotation</button>
+        </form>
+      </div>
+
+      <div class="content-card">
+        <h2>Useful information</h2>
+        <ul>
+          <li>Booking discount tiers: 1 booking = 0%, 2 bookings = 5%, 3 bookings = 10%, 4+ bookings = 15%.</li>
+          <li>Individual activities are priced at R750 each and group packages at R1,500 each.</li>
+          <li>Location and date availability may vary depending on the chosen experience.</li>
+          <li>For a tailored experience, you can also use the personalised booking pages.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="quote-summary-wrap">
+      <table id="budgetSlip" class="quote-summary" aria-live="polite">
+        <tr class="header-row">
+          <td colspan="2">Final Quotation</td>
+        </tr>
+        <tr>
+          <td width="40%"><strong>Client Name</strong></td>
+          <td><span id="budgetName">-</span></td>
+        </tr>
+        <tr id="budgetEmailRow" class="hidden-row">
+          <td><strong>Email</strong></td>
+          <td><span id="budgetEmail">-</span></td>
+        </tr>
+        <tr id="budgetPhoneRow" class="hidden-row">
+          <td><strong>Phone</strong></td>
+          <td><span id="budgetPhone">-</span></td>
+        </tr>
+        <tr>
+          <td><strong>Booking Type</strong></td>
+          <td><span id="budgetType">-</span></td>
+        </tr>
+        <tr>
+          <td><strong>Selected Experience</strong></td>
+          <td><span id="budgetPackage">-</span></td>
+        </tr>
+        <tr>
+          <td><strong>Bookings</strong></td>
+          <td><span id="budgetPeople">0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Preferred Date</strong></td>
+          <td><span id="budgetDate">-</span></td>
+        </tr>
+        <tr>
+          <td><strong>Preferred Location</strong></td>
+          <td><span id="budgetLocation">-</span></td>
+        </tr>
+        <tr>
+          <td><strong>Unit Price</strong></td>
+          <td><span id="budgetUnit">R 0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Subtotal</strong></td>
+          <td><span id="budgetSubtotal">R 0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Discount</strong></td>
+          <td><span id="budgetDiscount">R 0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Discounted Subtotal</strong></td>
+          <td><span id="budgetDiscountedSubtotal">R 0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Final Price</strong></td>
+          <td><strong><span id="budgetFinal">R 0</span></strong></td>
+        </tr>
+        <tr>
+          <td><strong>Total Estimate</strong></td>
+          <td><strong><span id="budgetTotal">R 0</span></strong></td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    Adventure Escape SA &nbsp; | &nbsp; Quotation requests for adventure activities and packages
+  </footer>
 </body>
 </html>
