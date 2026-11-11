@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+       <script src="Javascript/java.js" defer></script>
+    </head>
+    <body>
+       <header>
+
+ <img src="images/header.png" width="100%" height="390px" alt="web cover image"/>
+ 
+      
+      
+  <table width="100%" >
+    <tr>
+      <td>
+      
+          <a href="home_Page.html">Home</a> 
+          <a href="about_us.html">About </a> 
+        <a href="overview.html">Overview</a> 
+         <a href="individual_activities.html">Individual</a> 
+        <a href="group_activities.html">Group</a> 
+         <a href="bookings.html">Bookings</a> 
+        <a href="view.html">Track</a> 
+        <a href="accomodation.html">Accomodation</a>
+        <a href="equipment.html">Equipment</a> 
+        <a href="gallery.html">gallery</a> 
+        <a href="contact.html">Contact Us</a>
+       
+        
+      </td>
+    </tr>
+  </table>
+  </header>
+
+<main>
+
+    <h1>Adventure Escape Package Fee Calculator</h1>
+    <img src="images/money.jpg" width="375px" height="395px"/>
+
+  <h2>
+    Customer Quotation
+  </h2>
+
+           <form id="quotation">
+          <h4>
+            Name:
+            <input id="fname" type="text" required></input>
+            <small id="fnameError"></small>
+            <br>
+            <br>
+
+             Surname:
+            <input id="lname" type="text" required></input>
+            <small id="lnameError"></small>
+            <br>
+            <br>
+
+           Email Address: 
+            <input type="email" id="email" required>
+            <small id="emailError"></small>
+            <br></small>
+            <br>
+
+
+         Booking catergory:
+         <select id="catergory" required>
+          <option value=""></option>
+            <option value="Hiking">Individual Booking</option>
+            <option value="Kayaking">Group Booking</option>
+         </select>
+         <br>
+         <br>
+
+
+         Number of People:
+         <input id="people" type="number" required>
+         <br>
+         <br>
+
+         Individual SA Escape Packages
+         <select id="individual">
+            <option value=""></option>
+            <option value="Hiking">Ziplining Adventure</option>
+            <option value="Kayaking">Kayaking Experience</option>
+            <option value="Ziplining">Rock Climbing Session</option>
+         </select>
+         <br>
+         <br>
+
+         Grop SA Esvape Packages 
+         <select id="group>">
+            <option value=""></option>
+            <option value="Rock Climbing">Ultimate Adventure Day</option>
+            <option value="Mountain Climbing">Family Explore Package</option>
+            <option value="Mountain Climbing">Corporate Team Challenge</option>
+            <option value="Mountain Climbing">Rock scrambling </option>
+              <option value="Mountain Climbing">Mountain Adventure Package</option>
+         </select>
+         <br>
+         <br>
+
+         Escape SA Package Price:
+         <select id="price" required>
+           <option value=""></option>
+            <option value="Hiking">Individual Price: R750</option>
+            <option value="Kayaking">Group Price: R1500</option>
+         </select>
+         <br>
+         <br>
+
+
+          <button type="submit" an alt="button used to calculate the estimated booking price" height="125px" style="align-items: right;" width="205px"> Calculate</button>
+          
+          <button type="clear" an alt="button used to clear information entered by user in the forms" height="120px" width="205px" style="align-items: left;">Clear Booking</button>
+        </form>
+        
+       <br>
+
+       <div id="results" hidden>
+        <h2>Escape SA Customer Package Quotation</h2>
+        <pre id="details"></pre>
+       </div>
+               
+</main>
+       
+       
+
+        <footer>
+             <a href="quotation.html">Back to Top</a> 
+         <a href="home_Page.html">Home</a> 
+          <a href="about_us.html">About </a>
+        <a href="overview.html">Overview</a> 
+         <a href="individual_activities.html">Individual</a> 
+        <a href="group_activities.html">Group</a> 
+        <a href="bookings.html">Bookings</a> 
+        <a href="view.html">Track</a> 
+        <a href="accomodation.html">Accomodation</a>
+        <a href="equipment.html">Equipment</a> 
+        <a href="gallery.html">gallery</a> 
+        <a href="contact.html">Contact Us</a>
+        </footer>
+
+        
+    </body>
+</html>
