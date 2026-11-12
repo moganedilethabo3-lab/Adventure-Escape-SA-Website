@@ -15,9 +15,48 @@
          align-items: center;
          flex-wrap: wrap;
          justify-content: center;
-        
         }
-       </style>
+  .card-form{
+    background-color: #26332b;
+    color: #ffffff;
+    width: 100%;
+    max-width: 740px;
+    padding: 25px;
+    border: 1px solid;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.card-form h4{
+  color:white
+}
+
+
+.card-form input, .card-form select{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius:5px;
+    font-size: 15px;
+}
+.card-form button{
+    width: 60%;
+    padding:12px;
+    margin-top: 20px;
+    background-color:  #9fb6a2;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.card-form button:hover {
+    background-color: #d8e2dc;
+}
+.card-form button:focus, .card button:active{
+    color: #f4f7f2 ;
+}
+    </style>
     </head>
     <body>
         
@@ -53,10 +92,10 @@
   </header>  
 
  <main>
-        <h1>Adventure Escape SA Online Bookings</h1>
+        <h1 style="text-align: center;">Adventure Escape SA Online Bookings</h1>
         <h2 style="text-align: center;">Booking Form</h2>
       
-        <form id="book">
+        <form id="book" class="card-form">
           <h4>
             Name:
             <input id="fname" type="text" required>
@@ -79,7 +118,7 @@
             <br><br>
          
             Booking Category:
-            <select required>
+            <select required id="catergory">
               <option value=""></option>
               <option value="Hiking">Individual Booking</option>
               <option value="Kayaking">Group Booking</option>
@@ -87,7 +126,7 @@
             <br><br>
 
             Booking Date:
-            <input type="date" id="bookingDate" name="bookingDate" min="2026-10-20" required>
+            <input type="date" id="bookingDate" name="bookingDate" min="2026-11-17" required>
             <br><br>
 
             Number of People:
@@ -123,12 +162,13 @@
             <br><br>
           </h4>
 
-          <!-- Aligned container for Submit, Clear, and Track Link -->
-          <div class="form-actions">
-            <button type="submit">Submit Booking</button>
-            <button type="reset">Clear Booking</button>
-            <a href="view.html">Track your Application Online</a>
-          </div>
+          
+           <div style="align-items: center;">
+             <button type="submit" >Submit Booking</button>
+            <button type="reset" >Clear Booking</button>
+           </div>
+           
+          
         </form>
     </main>
        

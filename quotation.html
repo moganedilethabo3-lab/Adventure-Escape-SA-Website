@@ -5,6 +5,49 @@
          <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
        <script src="Javascript/java.js" defer></script>
+
+       <style>
+         .card-form{
+    background-color: #26332b;
+    color: #ffffff;
+    width: 100%;
+    max-width: 740px;
+    padding: 25px;
+    border: 1px solid;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.card-form h4{
+  color:white
+}
+
+
+.card-form input, .card-form select{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius:5px;
+    font-size: 15px;
+}
+.card-form button{
+    width: 60%;
+    padding:12px;
+    margin-top: 20px;
+    background-color:  #9fb6a2;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.card-form button:hover {
+    background-color: #d8e2dc;
+}
+.card-form button:focus, .card button:active{
+    color: #f4f7f2 ;
+}
+       </style>
     </head>
     <body>
        <header>
@@ -37,14 +80,14 @@
 
 <main>
 
-    <h1>Adventure Escape Package Fee Calculator</h1>
+    <h1 style="text-align: center;">Adventure Escape Package Fee Calculator</h1>
     <img src="images/money.jpg" width="375px" height="395px"/>
 
-  <h2>
+  <h2  style="text-align: center;">
     Customer Quotation
   </h2>
 
-           <form id="quotation">
+           <form id="book" class="card-form">
           <h4>
             Name:
             <input id="fname" type="text" required></input>
@@ -112,9 +155,9 @@
          <br>
 
 
-          <button type="submit" an alt="button used to calculate the estimated booking price" height="125px" style="align-items: right;" width="205px"> Calculate</button>
+          <button type="submit" an alt="button used to calculate the estimated booking price" > Calculate</button>
           
-          <button type="clear" an alt="button used to clear information entered by user in the forms" height="120px" width="205px" style="align-items: left;">Clear Booking</button>
+          <button type="clear" an alt="button used to clear information entered by user in the forms" >Clear Booking</button>
         </form>
         
        <br>

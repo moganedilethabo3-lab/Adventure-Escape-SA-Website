@@ -12,43 +12,89 @@ main{
 
 }
 
-card{
+.card{
     background-color: #26332b;
-    width: 90%;
-    max-width: 550px;
+    color: #ffffff;
+    width: 45%;
+    height:auto;
+    max-width: 300px;
     padding: 25px;
     border: 1px solid;
     border-radius: 15px;
     box-sizing: border-box;
 }
-card h4{
-      text-align: center;
-      margin-bottom: 20px;
-}
-card input, card select{
+
+.card input, .card select{
     width: 95%;
     padding: 10px;
     border: 1px solid;
     border-radius:5px;
     font-size: 15px;
 }
-card button{
+.card button{
     width: 100%;
     padding:12px;
     margin-top: 20px;
-    background-color: #26332b;
+    background-color:  #9fb6a2;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
 
 }
 
-card button:hover {
+.card button:hover {
     background-color: #d8e2dc;
 }
-card button:focus, card button:active{
+.card button:focus, .card button:active{
     color: #f4f7f2 ;
 }
+.faq-section{
+    width:90%;
+    max-width: 850px;
+    margin: 35 auto;
+    padding:20px;
+    background-color:#26332b;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.faq-section p {
+    font-size:25px;
+}
+.faq-item{
+    margin:10px o;
+    text-align: left;
+}
+.faq-question{
+    width:100%;
+    padding:15px;
+    background-color: #183b2b;
+    color:white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 15px;
+}
+.faq-question:hover{
+    background-color:#d8e2dc;
+}
+.faq-question::after{
+    content:"+";
+    float:right;
+    font-size: 20px;
+}
+.faq-question[aria-expanded="true"]::after{
+    content:"-";
+}
+.faq-answer {
+    padding:15px;
+    background-color: white;
+    border: 1px solid #d8e2dc;
+    border-radius: 0 0 8px 8px;
+    line-height: 1.5;
+}
+
 
 button{
     font-size: 16px;
@@ -173,7 +219,7 @@ h4{
 p{
     color:black;
     font-family: Arial, sans-serif;
-    font-size:1.3rem;
+    font-size:1rem;
     font-weight: normal;
 }
 h3{
