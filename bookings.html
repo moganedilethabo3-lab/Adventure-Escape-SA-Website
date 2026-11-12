@@ -52,104 +52,84 @@
   </table>
   </header>  
 
-  <main>
+ <main>
         <h1>Adventure Escape SA Online Bookings</h1>
-
-        <h2 style="text-align: center;"> Booking Form</h2>
+        <h2 style="text-align: center;">Booking Form</h2>
       
-        
-         <form id="book">
+        <form id="book">
           <h4>
             Name:
-            <input id="fname" type="text" required></input>
+            <input id="fname" type="text" required>
             <small id="fnameError"></small>
-            <br>
-            <br>
+            <br><br>
 
-             Surname:
-            <input id="lname" type="text" required></input>
+            Surname:
+            <input id="lname" type="text" required>
             <small id="lnameError"></small>
-            <br>
-            <br>
+            <br><br>
 
-           Email Address: 
+            Email Address: 
             <input type="email" id="email" required>
             <small id="emailError"></small>
-            <br></small>
-            <br>
+            <br><br>
             
-
-          cell Numbers
-          <input type="tel" id="phone" maxlength="10" placeholder="0229652389" required>
-           <small id="phoneError"></small>
-           <br>
-           <br>
+            Cell Numbers:
+            <input type="tel" id="phone" maxlength="10" placeholder="0229652389" required>
+            <small id="phoneError"></small>
+            <br><br>
          
-         Booking catergory:
-         <select required>
-          <option value=""></option>
-            <option value="Hiking">Individual Booking</option>
-            <option value="Kayaking">Group Booking</option>
-         </select>
-         <br>
-         <br>
+            Booking Category:
+            <select required>
+              <option value=""></option>
+              <option value="Hiking">Individual Booking</option>
+              <option value="Kayaking">Group Booking</option>
+            </select>
+            <br><br>
 
-         Booking Date:
-         <input
-              type="date"
-             id="bookingDate"
-             name="bookingDate"
-             min="2026-10-20"
-              required
-            >
-            <br>
-            <br>
+            Booking Date:
+            <input type="date" id="bookingDate" name="bookingDate" min="2026-10-20" required>
+            <br><br>
 
+            Number of People:
+            <input id="people" type="number" required>
+            <br><br>
 
-         Number of People:
-         <input id="people" type="number" required>
-         <br>
-         <br>
+            Individual SA Escape Packages:
+            <select id="individual">
+              <option value=""></option>
+              <option value="Hiking">Ziplining Adventure</option>
+              <option value="Kayaking">Kayaking Experience</option>
+              <option value="Ziplining">Rock Climbing Session</option>
+            </select>
+            <br><br>
 
-         Individual SA Escape Packages
-         <select id="individual">
-            <option value=""></option>
-            <option value="Hiking">Ziplining Adventure</option>
-            <option value="Kayaking">Kayaking Experience</option>
-            <option value="Ziplining">Rock Climbing Session</option>
-         </select>
-         <br>
-         <br>
-
-         Grop SA Esvape Packages 
-         <select id="group>">
-            <option value=""></option>
-            <option value="Rock Climbing">Ultimate Adventure Day</option>
-            <option value="Mountain Climbing">Family Explore Package</option>
-            <option value="Mountain Climbing">Corporate Team Challenge</option>
-            <option value="Mountain Climbing">Rock scrambling </option>
+            Group SA Escape Packages: 
+            <select id="group">
+              <option value=""></option>
+              <option value="Rock Climbing">Ultimate Adventure Day</option>
+              <option value="Mountain Climbing">Family Explore Package</option>
+              <option value="Mountain Climbing">Corporate Team Challenge</option>
+              <option value="Mountain Climbing">Rock scrambling</option>
               <option value="Mountain Climbing">Mountain Adventure Package</option>
-         </select>
-         <br>
-         <br>
+            </select>
+            <br><br>
 
-         Escape SA Package Price:
-         <select id="price" required>
-           <option value=""></option>
-            <option value="Hiking">Individual Price: R750</option>
-            <option value="Kayaking">Group Price: R1500</option>
-         </select>
-         <br>
-         <br>
+            Escape SA Package Price:
+            <select id="price" required>
+              <option value=""></option>
+              <option value="Hiking">Individual Price: R750</option>
+              <option value="Kayaking">Group Price: R1500</option>
+            </select>
+            <br><br>
+          </h4>
 
-
-          <button type="submit" an alt="button used to submit booking forms" height="125px" style="align-items:right" width="205px" >Submit Booking</button>
-         
-          <button type="clear" an alt="button used to clear information entered by user in the forms" height="120px" width="205px" style="align-items: left;">Clear Booking</button>
+          <!-- Aligned container for Submit, Clear, and Track Link -->
+          <div class="form-actions">
+            <button type="submit">Submit Booking</button>
+            <button type="reset">Clear Booking</button>
+            <a href="view.html">Track your Application Online</a>
+          </div>
         </form>
-        <h3 style="text-align: center;"> <a href="view.html">Track your Application Online</a></h3>
-
-         
     </main>
        
 
