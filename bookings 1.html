@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home - Bookings</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="Javascript/java.js" defer></script>
+
+       <style>
+         .align {
+           flex-direction: row;
+           display: flex;
+           gap: 25px;
+           padding: 15px;
+           align-items: center;
+           flex-wrap: wrap;
+           justify-content: center;
+         }
+         
+         /* Styling to align buttons and tracking link nicely together */
+         .form-actions {
+           display: flex;
+           align-items: center;
+           gap: 15px;
+           flex-wrap: wrap;
+           margin-top: 20px;
+         }
+
+         .form-actions button {
+           padding: 10px 20px;
+           cursor: pointer;
+         }
+       </style>
+    </head>
+    <body>
+        
+    <header>
+      <div class="align">
+        <img src="images/header.png" width="100%" height="390px" alt="web cover image"/>
+      </div>
+  
+      <table width="100%">
+        <tr>
+          <td>
+            <a href="home_Page.html">Home</a> 
+            <a href="about_us.html">About</a> 
+            <a href="overview.html">Overview</a> 
+            <a href="individual_activities.html">Individual</a> 
+            <a href="group_activities.html">Group</a> 
+            <a href="view.html">Track</a> 
+            <a href="quotation.html">Quotation</a> 
+            <a href="accomodation.html">Accomodation</a>
+            <a href="equipment.html">Equipment</a> 
+            <a href="gallery.html">Gallery</a> 
+            <a href="contact.html">Contact Us</a>
+          </td>
+        </tr>
+      </table>
+    </header>  
+
+    <main>
+        <h1>Adventure Escape SA Online Bookings</h1>
+        <h2 style="text-align: center;">Booking Form</h2>
+      
+        <form id="book">
+          <h4>
+            Name:
+            <input id="fname" type="text" required>
+            <small id="fnameError"></small>
+            <br><br>
+
+            Surname:
+            <input id="lname" type="text" required>
+            <small id="lnameError"></small>
+            <br><br>
+
+            Email Address: 
+            <input type="email" id="email" required>
+            <small id="emailError"></small>
+            <br><br>
+            
+            Cell Numbers:
+            <input type="tel" id="phone" maxlength="10" placeholder="0229652389" required>
+            <small id="phoneError"></small>
+            <br><br>
+         
+            Booking Category:
+            <select required>
+              <option value=""></option>
+              <option value="Hiking">Individual Booking</option>
+              <option value="Kayaking">Group Booking</option>
+            </select>
+            <br><br>
+
+            Booking Date:
+            <input type="date" id="bookingDate" name="bookingDate" min="2026-10-20" required>
+            <br><br>
+
+            Number of People:
+            <input id="people" type="number" required>
+            <br><br>
+
+            Individual SA Escape Packages:
+            <select id="individual">
+              <option value=""></option>
+              <option value="Hiking">Ziplining Adventure</option>
+              <option value="Kayaking">Kayaking Experience</option>
+              <option value="Ziplining">Rock Climbing Session</option>
+            </select>
+            <br><br>
+
+            Group SA Escape Packages: 
+            <select id="group">
+              <option value=""></option>
+              <option value="Rock Climbing">Ultimate Adventure Day</option>
+              <option value="Mountain Climbing">Family Explore Package</option>
+              <option value="Mountain Climbing">Corporate Team Challenge</option>
+              <option value="Mountain Climbing">Rock scrambling</option>
+              <option value="Mountain Climbing">Mountain Adventure Package</option>
+            </select>
+            <br><br>
+
+            Escape SA Package Price:
+            <select id="price" required>
+              <option value=""></option>
+              <option value="Hiking">Individual Price: R750</option>
+              <option value="Kayaking">Group Price: R1500</option>
+            </select>
+            <br><br>
+          </h4>
+
+          <!-- Aligned container for Submit, Clear, and Track Link -->
+          <div class="form-actions">
+            <button type="submit">Submit Booking</button>
+            <button type="reset">Clear Booking</button>
+            <a href="view.html">Track your Application Online</a>
+          </div>
+        </form>
+    </main>
+
+    <footer>
+      <table width="100%">
+        <tr>
+          <td>
+            <a href="bookings.html">Back to Top</a> 
+            <a href="home_Page.html">Home</a> 
+            <a href="about_us.html">About</a> 
+            <a href="overview.html">Overview</a> 
+            <a href="individual_activities.html">Individual</a> 
+            <a href="group_activities.html">Group</a> 
+            <a href="view.html">Track</a> 
+            <a href="quotation.html">Quotation</a> 
+            <a href="accomodation.html">Accomodation</a>
+            <a href="equipment.html">Equipment</a> 
+            <a href="gallery.html">Gallery</a> 
+            <a href="contact.html">Contact Us</a>
+          </td>
+        </tr>
+      </table>
+    </footer>
+</body>
+</html>
