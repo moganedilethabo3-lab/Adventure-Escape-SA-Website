@@ -5,6 +5,37 @@
          <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
        <script src="Javascript/java.js" defer></script>
+
+        <style>
+          .table-align{
+         display:flex;
+         flex-direction: row;
+         gap:25px;
+         align-items: center;
+         margin: 0 auto;
+         flex-wrap: wrap;
+         justify-content: center;
+         width:100%;
+         max-width:1200px;
+        }
+        .card-form{
+    background-color: #26332b;
+    color: #ffffff;
+    width: 100%;
+    max-width: 740px;
+    padding: 25px;
+    border: 1px solid;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.card-form h4{
+  color:white
+}
+.card-form p{
+  color:white
+}
+
+        </style>
     </head>
     <body>
         <header>
@@ -63,48 +94,44 @@
 
             <h2 style="text-align: center;"> Company Contact Details</h2>
 
-            <table style="text-align: center;" >
+            <table class="table-align">
+                <tr>
+                    <td>
+                         <table style="text-align: center;" class="card-form" >
                 <tr>
                     <td>
                         <p> Email Address : <a href="mailto:adventureescapesa@gmail.com">adventureescapesa@gmail.com</a></p>
                     </td>
                     
                 </tr>
-            
- 
-    
+
                 <tr>
                     <td>
                         <p>Company Website : Adventure Escape SA.co.za</p>
                     </td>
                     
                 </tr>
-    
 
-            
-    
                 <tr>
                     <td >
                         <p> Cell Numbers : 0725282469</p>
                     </td>
                     
                 </tr>
-            
 
-            
                 <tr>
                     <td >
                         <p> Social Media UserName:  Adventure Escape South Africa</p>
                     </td>
+
+               
+                </td>
                    
                 </tr>
             </table>
-            <br>
-
-         <h2 style="text-align: center;">Enquries Google Form</h2> 
-         
-
-            <table width="65%">
+                    </td>
+                
+                    <td> <table width="65%">
                 <tr>
                     <td width="50%" style="text-align: center;">
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJnZ25208qzkcCj_fuQBdE9O-JkL8AI-op6CEF1oJezCgHww/viewform?embedded=true" width="790" height="1476" frameborder="0" marginheight="0" marginwidth="0">
@@ -112,8 +139,12 @@
                         </iframe>
                     </td>
                 </tr>
+            </table></td>
+                </tr>
             </table>
-            
+
+            <br>
+
             
  </main>
 
