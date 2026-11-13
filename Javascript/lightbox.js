@@ -1,4 +1,4 @@
-const galleryImages = document.querySelectorAll(".img-align, dog-name");
+const galleryImages = document.querySelectorAll(".img-align img");
 
 
 const lightbox = document.getElementById("lightbox");
