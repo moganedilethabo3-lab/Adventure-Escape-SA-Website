@@ -249,6 +249,45 @@ form {
     border-radius: 10px;
     box-shadow: 0 5px 18px rgba(25, 55, 35, 0.08);
 }
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #9fb6a2;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+
+#lightboxImage {
+    max-width: 90%;
+    max-height: 85%;
+    width:auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+#closeLightbox {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: white;
+    background:  black;
+    border: none;
+    cursor: pointer;
+    z-index:10000;
+}
+#closeLightbox:hover{
+    color:black;
+}
 
 
 
