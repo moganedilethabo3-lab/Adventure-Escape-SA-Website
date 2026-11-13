@@ -23,6 +23,9 @@ main{
     border-radius: 15px;
     box-sizing: border-box;
 }
+.card p{
+    color:white
+}
 
 .card input, .card select{
     width: 95%;
@@ -93,6 +96,22 @@ main{
     border: 1px solid #d8e2dc;
     border-radius: 0 0 8px 8px;
     line-height: 1.5;
+}
+.error-message{
+    color: #9fb6a2
+}
+#bookingResults {
+    background-color:#183b2b ;
+    color: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    border: 1px solid #b5cbb5;
+}
+
+#bookingDetails {
+    white-space: pre-line;
+    line-height: 1.8;
 }
 
 

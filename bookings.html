@@ -95,70 +95,79 @@
         <h1 style="text-align: center;">Adventure Escape SA Online Bookings</h1>
         <h2 style="text-align: center;">Booking Form</h2>
       
-        <form id="book" class="card-form">
+        <table>
+          <tr>
+            <td>
+              <form id="book" class="card-form" novalidate>
           <h4>
             Name:
             <input id="fname" type="text" required>
-            <small id="fnameError"></small>
+            <small id="fnameError" class="error-message"></small>
             <br><br>
 
             Surname:
             <input id="lname" type="text" required>
-            <small id="lnameError"></small>
+            <small id="lnameError" class="error-message"></small>
             <br><br>
 
             Email Address: 
             <input type="email" id="email" required>
-            <small id="emailError"></small>
+            <small id="emailError" class="error-message"></small>
             <br><br>
             
             Cell Numbers:
             <input type="tel" id="phone" maxlength="10" placeholder="0229652389" required>
-            <small id="phoneError"></small>
+            <small id="phoneError" class="error-message"></small>
             <br><br>
          
             Booking Category:
             <select required id="catergory">
-              <option value=""></option>
+              <option value="">Select Booking catergory</option>
               <option value="Hiking">Individual Booking</option>
               <option value="Kayaking">Group Booking</option>
             </select>
+            <small id="bookingError" class="error-message"></small>
             <br><br>
 
             Booking Date:
             <input type="date" id="bookingDate" name="bookingDate" min="2026-11-17" required>
+           
             <br><br>
 
             Number of People:
-            <input id="people" type="number" required>
+            <input id="people" type="number" min="1" required>
+            <small id="peopleError" class="error-message"></small>
             <br><br>
 
             Individual SA Escape Packages:
             <select id="individual">
-              <option value=""></option>
+              <option value="">Select Package</option>
               <option value="Hiking">Ziplining Adventure</option>
               <option value="Kayaking">Kayaking Experience</option>
               <option value="Ziplining">Rock Climbing Session</option>
+              <small id="individualError" class="error-message"></small>
             </select>
             <br><br>
 
             Group SA Escape Packages: 
             <select id="group">
-              <option value=""></option>
+              <option value="">Select Package</option>
               <option value="Rock Climbing">Ultimate Adventure Day</option>
               <option value="Mountain Climbing">Family Explore Package</option>
               <option value="Mountain Climbing">Corporate Team Challenge</option>
               <option value="Mountain Climbing">Rock scrambling</option>
               <option value="Mountain Climbing">Mountain Adventure Package</option>
+              <small id="groupError" class="error-message"></small>
             </select>
             <br><br>
 
             Escape SA Package Price:
             <select id="price" required>
-              <option value=""></option>
-              <option value="Hiking">Individual Price: R750</option>
-              <option value="Kayaking">Group Price: R1500</option>
+              <option value="">Select Price</option>
+              <option value="750">Individual Price: R750</option>
+              <option value="1500">Group Price: R1500</option>
             </select>
+            <small id="priceError" class="error-message"></small>
             <br><br>
           </h4>
 
@@ -170,6 +179,17 @@
            
           
         </form>
+            </td>
+            <td>
+              <div id="bookingResults" hidden>
+    <h2>Booking Confirmation</h2>
+    <div id="bookingDetails"></div>
+</div>
+            </td>
+          </tr>
+        </table>
+
+        
     </main>
        
 

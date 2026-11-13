@@ -1,3 +1,27 @@
+
+$(document).ready(function() {
+    $("#founder").hide();
+    $("#founder-btn").on("click",function(){
+        $("#founder").slideToggle(600);
+    });
+
+
+$(document).ready(function(){
+    $("#team").hide();
+    $("#team-btn").on("click",function(){
+         $("#team").slideToggle(1000);
+    });
+});
+
+$(document).ready(function(){
+    $("#git").hide();
+    $("#github").on("click",function(){
+         $("#git").slideToggle(1000);
+    });
+});
+
+});
+
 const faqSection =[
     {
         question:"Are booking open all round the year",

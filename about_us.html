@@ -4,6 +4,7 @@
         <title>About Us</title>
          <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="Javascript/jquery.js" defer></script>
        <script src="Javascript/java.js" defer></script>
 
        <style>
@@ -22,6 +23,33 @@
 }
 .card-form p{
   color:white
+}.about-align{
+         display:flex;
+         flex-direction: row;
+         gap:25px;
+         align-items: center;
+         margin: 0 auto;
+         flex-wrap: wrap;
+         justify-content: center;
+         width:100%;
+         max-width:1200px;
+        }
+.query-button{
+    width: 25%;
+    padding:12px;
+    margin-top: 20px;
+    background-color:  #9fb6a2;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.query-button button:hover {
+    background-color: #d8e2dc;
+}
+.query-button button:focus, .card button:active{
+    color: #f4f7f2 ;
 }
 
 
@@ -121,14 +149,16 @@
   
   <br>
    
-         <div class="align">
-          <h1 style="text-align: center;" >Adventure Escape SA Founder</h1>
-          <h2 style="text-align: center;">Liam Danials</h2>
-
-            <img src="images/founder.jpg" alt="Company founder" width="305px" height="330px" >
+  <button id="founder-btn" class="query-button"  style="display: block; margin: auto; margin-bottom: 15px;">Adventure Escape SA Founder</button>
+     <div id="founder">
+       <h1 style="text-align: center;" >Adventure Escape SA Founder</h1>
+          
+         <div class="about-align">
+       <img src="images/founder.jpg" alt="Company founder" width="305px" height="330px" >
               
             <div class="card-form" >
-               <p style="text-align: center;">
+                <h2 style="text-align: center;">Liam Danials</h2>
+                 <p style="text-align: center;">
                  Born in 1956, Cape Town South Africa </p>
               <p style="text-align: center;">  Liam grew up in a a family that loved to travel across the country. </p>
                <p style="text-align: center;"> Group and individual plans</p>
@@ -137,16 +167,15 @@
           </p>
             </div>
          </div>
-          
-               
+     </div>
 
           <br>
-            
-  
-
+       
+          <button id="team-btn"  class="query-button" style="display: block; margin: auto; margin-bottom: 15px;"> The Escape Team</button>
+  <div id="team">
      <h1 style="text-align: center;">The Escape Team</h1>
 
-    <table width="50%">
+    <table width="50%" class="align">
             <tr>
              <td width="30%">
             <img src="images/team.jpg" alt="Company Team" width="305px" height="310px" >
@@ -168,6 +197,9 @@
               </td>
             </tr>
           </table>
+  </div>
+
+    
   </main>
 
  

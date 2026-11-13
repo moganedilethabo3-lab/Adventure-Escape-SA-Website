@@ -4,7 +4,29 @@
         <title>Home</title>
        <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="Javascript/jquery.js" defer></script>
        <script src="Javascript/java.js" defer></script>
+
+       <style>
+        .query-button{
+    width: 25%;
+    padding:12px;
+    margin-top: 20px;
+    background-color:  #9fb6a2;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.query-button button:hover {
+    background-color: #d8e2dc;
+}
+.query-button button:focus, .card button:active{
+    color: #f4f7f2 ;
+}
+
+       </style>
     </head>
     <body>
     
@@ -131,8 +153,8 @@
                  <img src="images/trip.jfif" width="295px" height="310px"/>
               </td>
 
-              <td class=" card">
-                 <ul style="text-align: center;">
+              <td class="card">
+                 <ul class="align">
                 <p style="color: white;">
                Outdoor experiences in scenic locations </p>
               <p style="color: white;">  Flexible booking options</p>
@@ -147,11 +169,15 @@
           </table>
 
           <br>
-        <h3 style="text-align: center;"> GitHub App Repository</h3>
+          <button id="github" class="query-button"  style="display: block; margin: auto; margin-bottom: 15px;"> GitHub repository</button>
+          <div id="git">
+             <h3 style="text-align: center;"> GitHub App Repository</h3>
              <img src="images/app.jfif" width="215px" height="195px">
               <a href="https://github.com/moganedilethabo3-lab/Adventure-Escape-SA-Application/tree/master">
                 <p style="text-align: center;"> Click to download</p>
               </a>
+          </div>
+       
 
       </main>
 

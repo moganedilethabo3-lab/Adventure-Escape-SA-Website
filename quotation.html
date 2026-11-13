@@ -4,7 +4,7 @@
         <title>Home</title>
          <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-       <script src="Javascript/java.js" defer></script>
+       <script src="Javascript/quotation.js" defer></script>
 
        <style>
    .card-form{
@@ -87,85 +87,106 @@
     Customer Quotation
   </h2>
 
-           <form id="book" class="card-form">
+           <table>
+            <tr>
+              <td>
+                <form id="quotation" class="card-form" novalidate>
           <h4>
             Name:
             <input id="fname" type="text" required></input>
-            <small id="fnameError"></small>
+            <small id="fnameError" class="error-message"></small>
             <br>
             <br>
 
              Surname:
             <input id="lname" type="text" required></input>
-            <small id="lnameError"></small>
+            <small id="lnameError" class="error-message"></small>
             <br>
             <br>
 
            Email Address: 
             <input type="email" id="email" required>
-            <small id="emailError"></small>
-            <br></small>
+            <small id="emailError" class="error-message"></small>
+            <br>
             <br>
 
 
          Booking catergory:
          <select id="catergory" required>
-          <option value=""></option>
-            <option value="Hiking">Individual Booking</option>
-            <option value="Kayaking">Group Booking</option>
+          <option value="">Select booking catergory</option>
+            <option value="individual">Individual Booking</option>
+            <option value="group">Group Booking</option>
          </select>
+         <small id="bookingError" class="error-message"></small>
          <br>
          <br>
 
 
          Number of People:
-         <input id="people" type="number" required>
+         <input id="people" type="number" min="1" step="1" required>
+           <small id="peopleError" class="error-message"></small>
+         <br>
+         <br>
+
+         Number of seperate bookings:
+         <input id="bookings" type="number" min="1" step="1" required>
+         <small id="bookingsError" class="error-message"></small>
          <br>
          <br>
 
          Individual SA Escape Packages
          <select id="individual">
-            <option value=""></option>
-            <option value="Hiking">Ziplining Adventure</option>
+            <option value=""> Select Individual Package</option>
+            <option value="Ziplining">Ziplining Adventure</option>
             <option value="Kayaking">Kayaking Experience</option>
-            <option value="Ziplining">Rock Climbing Session</option>
+            <option value="Rock-climbing">Rock Climbing Session</option>
          </select>
+         <small id="individualError" class="error-message"></small>
          <br>
          <br>
 
-         Grop SA Esvape Packages 
-         <select id="group>">
-            <option value=""></option>
-            <option value="Rock Climbing">Ultimate Adventure Day</option>
-            <option value="Mountain Climbing">Family Explore Package</option>
-            <option value="Mountain Climbing">Corporate Team Challenge</option>
-            <option value="Mountain Climbing">Rock scrambling </option>
-              <option value="Mountain Climbing">Mountain Adventure Package</option>
+         Group SA Esvape Packages 
+         <select id="group">
+            <option value="">Select Group Package</option>
+            <option value="Ultimate">Ultimate Adventure Day</option>
+            <option value="Family">Family Explore Package</option>
+            <option value="Team">Corporate Team Challenge</option>
+            <option value="Rock-scrambling">Rock scrambling </option>
+              <option value="Mountain Adventure">Mountain Adventure Package</option>
          </select>
+         <small id="groupError" class="error-message"></small>
          <br>
          <br>
 
          Escape SA Package Price:
          <select id="price" required>
-           <option value=""></option>
-            <option value="Hiking">Individual Price: R750</option>
-            <option value="Kayaking">Group Price: R1500</option>
+           <option value="">Select Price</option>
+            <option value="750">Individual Price: R750</option>
+            <option value="1500">Group Price: R1500</option>
          </select>
+         <small id="priceError" class="error-message"></small>
          <br>
          <br>
 
 
-          <button type="submit" an alt="button used to calculate the estimated booking price" style="display: block; margin: auto; margin-bottom: 15px;" > Calculate</button>
+          <button  type="submit" an alt="button used to calculate the estimated booking price" style="display: block; margin: auto; margin-bottom: 15px;" > Calculate</button>
           
-          <button type="clear" an alt="button used to clear information entered by user in the forms" style="display: block; margin: auto;">Clear Booking</button>
+          <button type="reset" an alt="button used to clear information entered by user in the forms" style="display: block; margin: auto;">Clear Booking</button>
         </form>
-        
-       <br>
+              </td>
 
-       <div id="results" hidden>
+              <td>
+                 <div id="results" hidden  class="card-form">
         <h2>Escape SA Customer Package Quotation</h2>
         <pre id="details"></pre>
        </div>
+              </td>
+            </tr>
+           </table>
+        
+       <br>
+
+      
                
 </main>
        
