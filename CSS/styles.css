@@ -568,6 +568,20 @@ hr {
         gap: 5px;
         padding: 10px 5px;
     }
+    .align, .img-align {
+        flex-direction: column;
+        padding:15px;
+        align-items: center;
+    }
+       .lightboxImage{
+        max-width:95%;
+        max-height: 75%;
+    }
+    .closeLightbox{
+        top:10px;
+        right:15px;
+        font-size: 30px;
+    }
 
     header a,
     header a:link,
