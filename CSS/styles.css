@@ -166,7 +166,7 @@ header {
     background: #183b2b;
 }
 
-header  img {
+header > img {
     display: block;
     width: 100%;
     height: 285px;
@@ -177,11 +177,17 @@ header table {
     width: 100%;
     border-collapse: collapse;
     background: #183b2b;
+    table-layout: fixed;
 }
 
 header table td {
-    padding: 16px 12px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
 }
 
 header a,
@@ -193,9 +199,10 @@ header a:visited {
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border: 1px solid transparent;
     border-radius: 5px;
+    white-space: nowrap;
 }
 
 header a:hover,
@@ -529,5 +536,46 @@ hr {
         width: 100%;
         margin: 5px 0;
     }
+
+
+@media screen and (max-width: 768px) {
+
+    header > img {
+        height: 190px;
+    }
+
+    header table td {
+        gap: 6px;
+        padding: 10px 5px;
+    }
+
+    header a {
+        font-size: 13px;
+        padding: 9px 10px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
+    header > img {
+        height: 150px;
+    }
+
+    header table td {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px 5px;
+    }
+
+    header a,
+    header a:link,
+    header a:visited {
+        font-size: 12px;
+        padding: 8px 9px;
+    }
+}
+
     
 }
